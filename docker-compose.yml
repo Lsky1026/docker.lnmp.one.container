@@ -1,0 +1,20 @@
+version: "3"
+services: 
+  # ubuntu
+  lsky-ubuntu:
+    image: ubuntu:latest
+    # build: ./ubuntu
+    restart: always
+    container_name: lsky-ubuntu
+    privileged: true
+    environment:
+    - "container=docker"
+    ports:
+      # 将主机的 9100 端口映射到容器的 80 端口
+      - "12080:80"
+      - "12443:443"
+      - "12022:22"
+    # 创建一个数据卷
+    volumes:
+      - "./nginx.config:/usr/nginx.config"
+      - "./data/wwwroot:/data/wwwroot"
