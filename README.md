@@ -44,8 +44,9 @@
 - cd /usr/local/php/etc/php.d && vim ext-xdebug.ini
 
 - 输入 zend_extension=xdebug.so
-        xdebug.remote_enable = on
+        xdebug.remote_enable = 1
         xdebug.remote_handler=dbgp
+        xdebug.remote_mode=req
         xdebug.remote_host=你的local ip
         xdebug.remote_port=12900
         xdebug.output_buffering=off
