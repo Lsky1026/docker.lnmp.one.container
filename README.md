@@ -44,20 +44,42 @@
 - cd /usr/local/php/etc/php.d && vim ext-xdebug.ini
 
 - 输入 zend_extension=xdebug.so
-        xdebug.remote_enable = 1
+        xdebug.remote_enable=1
         xdebug.remote_handler=dbgp
         xdebug.remote_mode=req
         xdebug.remote_host=你的local ip
-        xdebug.remote_port=12900
         xdebug.output_buffering=off
-        xdebug.profiler_enable = 1
+        xdebug.profiler_enable=1
         xdebug.remote_autostart=1
-        xdebug.profiler_enable_trigger = off
-        xdebug.profiler_output_name = cachegrind.out.%t.%p
-        xdebug.profiler_output_dir = "/data/temp"
+        xdebug.profiler_enable_trigger=off
+        xdebug.profiler_output_name=cachegrind.out.%t.%p
+        xdebug.profiler_output_dir="/data/temp"
         xdebug.show_local_vars=0
         xdebug.remote_autostart=1
         xdebug.idekey="7766LIN$"
+        xdebug.remote_log=/data/debug_log
+
+- vscode xdebug配置
+```javascript
+    {
+        // 使用 IntelliSense 了解相关属性。 
+        // 悬停以查看现有属性的描述。
+        // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Listen for XDebug",
+                "type": "php",
+                "request": "launch",
+                "port": 9000,
+                // 服务器端项目路径
+                "serverSourceRoot": "/data/wwwroot",
+                // 本地项目路径
+                "localSourceRoot": "/Users/XXX/soft/docker.lnmp.one.container/data/wwwroot"
+            }
+        ]
+    }
+```
 
 - service nginx configtest && service php-fpm restart && service nginx restart
 
